@@ -19,6 +19,8 @@
     $chunk_size = ceil($size / $columns);
     ?>
 
+    {{ $name }}
+
     <div class="container">
         <!-- Example row of columns -->
         <div class="row">
