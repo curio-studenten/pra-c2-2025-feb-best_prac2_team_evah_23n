@@ -155,12 +155,12 @@ sup {
 }
 
 a {
-    color: #3490dc;
+    color: #5fccff;
     text-decoration: none;
     background-color: transparent;
 }
 a:hover {
-    color: #1d68a7;
+    color: #a4def9;
     text-decoration: underline;
 }
 
@@ -10037,4 +10037,10 @@ footer {
     background-color: #343a40;
     opacity: 60%;
     color: #fff;
+}
+
+.jumbotron h1{
+    color: #5fccff;
+    font-size: 500%;
+    text-align: center;
 }
