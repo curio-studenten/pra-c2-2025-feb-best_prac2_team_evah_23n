@@ -61,6 +61,13 @@ Route::get('/{brand_id}/{brand_slug}/{manual_id}/', [ManualController::class, 's
 Route::get('/top-manuals', [ManualController::class, 'topManuals'])->name('top.manuals');
 Route::get('/{brand_id}/{brand_slug}/', [ManualController::class, 'showBrandManuals']);
 
+// Forum route
+Route::get('/pages', function () {
+    return view('pages.forum');
+})->name('forum');
+
+
+
 // Generate sitemaps
 Route::get('/generateSitemap/', [SitemapController::class, 'generate']);
 

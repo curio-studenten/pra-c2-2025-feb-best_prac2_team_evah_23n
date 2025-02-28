@@ -12,6 +12,7 @@
         </x-slot:title>
     </h1>
     <a href="{{ route('top.manuals') }}">Top 10 Handleidingen</a>
+    <a href="{{ route('forum') }}">Vul een form in</a>
 
     <?php
     $size = count($brands);
