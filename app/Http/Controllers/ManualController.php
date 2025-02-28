@@ -25,4 +25,17 @@ class ManualController extends Controller
 
         return view('top-manuals', compact('topManuals'));
     }
+
+    public function showBrandManuals($brandId, $brandNameUrlEncoded)
+    {
+        $brand = Brand::findOrFail($brandId);
+        $manuals = Manual::where('brand_id', $brandId)->get();
+
+        $topManuals = Manual::where('brand_id', $brandId)
+            ->orderBy('views', 'desc')
+            ->take(5)
+            ->get();
+
+        return view('pages/manual_list', compact('brand', 'manuals', 'topManuals'));
+    }
 }

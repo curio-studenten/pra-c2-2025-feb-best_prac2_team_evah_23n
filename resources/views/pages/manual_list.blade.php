@@ -12,17 +12,29 @@
 
     <p>{{ __('introduction_texts.type_list', ['brand'=>$brand->name]) }}</p>
 
-   @foreach ($manuals as $manual)
-    <?php
-        $manual->increment('views');
-    ?>
+    <h2>Populaire Handleidingen</h2>
 
-    @if ($manual->locally_available)
-        <a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/{{ $manual->id }}/" alt="{{ $manual->name }}" title="{{ $manual->name }}">{{ $manual->name }}</a>
-        ({{$manual->filesize_human_readable}})
+    @if($topManuals->isNotEmpty())
+        <ul>
+            @foreach($topManuals as $manual)
+                <li>{{ $manual->name }} ({{$manual->views}} weergaven)</li>
+            @endforeach
+        </ul>
     @else
-        <a href="{{ $manual->url }}" target="new" alt="{{ $manual->name }}" title="{{ $manual->name }}">{{ $manual->name }}</a>
+        <p>Er zijn nog geen populaire handleidingen voor dit merk.</p>
     @endif
+
+    @foreach ($manuals as $manual)
+        <?php
+            $manual->increment('views');
+        ?>
+
+        @if ($manual->locally_available)
+            <a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/{{ $manual->id }}/" alt="{{ $manual->name }}" title="{{ $manual->name }}">{{ $manual->name }}</a>
+            ({{$manual->filesize_human_readable}})
+        @else
+            <a href="{{ $manual->url }}" target="new" alt="{{ $manual->name }}" title="{{ $manual->name }}">{{ $manual->name }}</a>
+        @endif
 
         <br />
     @endforeach
