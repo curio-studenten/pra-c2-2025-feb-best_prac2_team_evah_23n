@@ -18,4 +18,11 @@ class ManualController extends Controller
             "brand" => $brand,
         ]);
     }
+
+    public function topManuals()
+    {
+        $topManuals = Manual::orderBy('views', 'desc')->take(10)->get();
+
+        return view('top-manuals', compact('topManuals'));
+    }
 }

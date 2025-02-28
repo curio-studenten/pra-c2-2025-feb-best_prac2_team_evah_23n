@@ -11,7 +11,7 @@
             {{ __('misc.all_brands') }}
         </x-slot:title>
     </h1>
-
+    <a href="{{ route('top.manuals') }}">Top 10 Handleidingen</a>
 
     <?php
     $size = count($brands);

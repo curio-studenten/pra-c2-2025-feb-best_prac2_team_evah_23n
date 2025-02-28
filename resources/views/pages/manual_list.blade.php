@@ -12,17 +12,17 @@
 
     <p>{{ __('introduction_texts.type_list', ['brand'=>$brand->name]) }}</p>
 
-    @foreach ($manuals as $manual)
+   @foreach ($manuals as $manual)
+    <?php
+        $manual->increment('views');
+    ?>
 
-        {{-- Increment the view count.  Important: Do this *before* displaying the manual link --}}
-        <?php $manual->views++; $manual->save(); ?>  {{-- Or $manual->views++; $manual->save(); if you prefer --}}
-
-        @if ($manual->locally_available)
-            <a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/{{ $manual->id }}/" alt="{{ $manual->name }}" title="{{ $manual->name }}">{{ $manual->name }}</a>
-            ({{$manual->filesize_human_readable}})
-        @else
-            <a href="{{ $manual->url }}" target="new" alt="{{ $manual->name }}" title="{{ $manual->name }}">{{ $manual->name }}</a>
-        @endif
+    @if ($manual->locally_available)
+        <a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/{{ $manual->id }}/" alt="{{ $manual->name }}" title="{{ $manual->name }}">{{ $manual->name }}</a>
+        ({{$manual->filesize_human_readable}})
+    @else
+        <a href="{{ $manual->url }}" target="new" alt="{{ $manual->name }}" title="{{ $manual->name }}">{{ $manual->name }}</a>
+    @endif
 
         <br />
     @endforeach

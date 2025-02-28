@@ -53,4 +53,11 @@ class Manual extends Model
 
         return $url; */
     }
+
+    protected $fillable = ['name', 'brand_id', 'views', /* andere velden */];
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
 }

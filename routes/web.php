@@ -56,6 +56,10 @@ Route::get('/{brand_id}/{brand_slug}/', [BrandController::class, 'show']);
 // Detail page for a manual
 Route::get('/{brand_id}/{brand_slug}/{manual_id}/', [ManualController::class, 'show']);
 
+// List of top manuals
+
+Route::get('/top-manuals', [ManualController::class, 'topManuals'])->name('top.manuals');
+
 // Generate sitemaps
 Route::get('/generateSitemap/', [SitemapController::class, 'generate']);
 
