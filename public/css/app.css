@@ -10070,6 +10070,7 @@ footer {
     text-align: center;
     transition: transform 0.2s ease-in-out;
     min-width: 150px;
+    background-color: #e9ecef;
 }
 
 .brand-item:hover {
