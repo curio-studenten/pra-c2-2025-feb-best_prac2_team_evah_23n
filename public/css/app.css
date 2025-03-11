@@ -10030,13 +10030,36 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 100px;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     background-color: #343a40;
     opacity: 60%;
     color: #fff;
+}
+
+footer .socials{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.about{
+    width: 40%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #343a40;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
 }
 
 .jumbotron h1{
@@ -10082,22 +10105,4 @@ footer {
     .brands-container {
         grid-template-columns: 1fr; /* Alle merken onder elkaar */
     }
-}
-
-.jumbotron .container a {
-    display: inline-block;
-    padding: 25px 55px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #fff;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
-    box-shadow: #040505;
-    border-radius: 10px;
-}
-
-.jumbotron .container a:hover {
-    background-color: #343a40;
 }
